@@ -2,11 +2,12 @@
 
 from django.db import migrations
 from datetime import datetime
+import pytz
 
 def create_data(apps, schema_editor):
     Tweet = apps.get_model('tweets', 'Tweet')
     Tweet(tweetID = 1443632963233650000, tweet = 'Hwy22 at 51 St, in Caroline, is CLOSED due to MVC. Use alt. routes. (11:44am) via @ClearwaterRFRS #ABRoads', 
-          publishDateTime = datetime(2021, 9, 30, 17, 44), mainHighway='highway 22', geoname='Caroline').save()
+          publishDateTime = datetime(2021, 9, 30, 17, 44, tzinfo=pytz.UTC), mainHighway='highway 22', geoname='Caroline').save()
 
 class Migration(migrations.Migration):
 
