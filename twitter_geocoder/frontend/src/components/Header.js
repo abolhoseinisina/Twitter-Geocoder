@@ -3,16 +3,15 @@ import React, { Component } from "react";
 class Header extends Component {
   render() {
     return (
-      <div className="text-center">
+      <div className="text-left">
         <img
           src="https://pbs.twimg.com/profile_images/1419653728571953153/53Ohu0OO_400x400.png"
-          width="300"
-          className="img-thumbnail"
+          width="50"
           style={{ marginTop: "20px" }}
           alt="logo"
-        />
-        <hr />
-        <h1>Twitter Geocoder</h1>
+        /><span>
+          Twitter Geocoder
+        </span>
       </div>
     );
   }
