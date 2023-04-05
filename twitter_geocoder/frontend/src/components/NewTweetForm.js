@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import moment from 'moment'
 
 import axios from "axios";
 
@@ -10,8 +11,8 @@ class NewTweetForm extends React.Component {
     pk: 0,
     tweetID: "",
     tweet: "",
-    publishDateTime: "",
-    lastUpdateDateTime: "",
+    publishDateTime: null,
+    lastUpdateDateTime: null,
     mainHighway: "",
     geoname: "",
   };
@@ -56,7 +57,7 @@ class NewTweetForm extends React.Component {
             type="number"
             name="tweetID"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.name)}
+            value={this.defaultIfEmpty(this.state.tweetID)}
           />
         </FormGroup>
         <FormGroup>
@@ -65,7 +66,7 @@ class NewTweetForm extends React.Component {
             type="text"
             name="tweet"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.email)}
+            value={this.defaultIfEmpty(this.state.tweet)}
           />
         </FormGroup>
         <FormGroup>
@@ -74,7 +75,7 @@ class NewTweetForm extends React.Component {
             type="datetime-local"
             name="publishDateTime"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.document)}
+            value={this.defaultIfEmpty(moment(this.state.publishDateTime).format('YYYY-MM-DDTHH:mm'))}
           />
         </FormGroup>
         <FormGroup>
@@ -83,7 +84,7 @@ class NewTweetForm extends React.Component {
             type="datetime-local"
             name="lastUpdateDateTime"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.phone)}
+            value={this.defaultIfEmpty(moment(this.state.lastUpdateDateTime).format('YYYY-MM-DDTHH:mm'))}
           />
         </FormGroup>
         <FormGroup>
@@ -92,7 +93,7 @@ class NewTweetForm extends React.Component {
             type="text"
             name="mainHighway"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.phone)}
+            value={this.defaultIfEmpty(this.state.mainHighway)}
           />
         </FormGroup>
         <FormGroup>
@@ -101,7 +102,7 @@ class NewTweetForm extends React.Component {
             type="text"
             name="geoname"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.phone)}
+            value={this.defaultIfEmpty(this.state.geoname)}
           />
         </FormGroup>
         <Button>Send</Button>
