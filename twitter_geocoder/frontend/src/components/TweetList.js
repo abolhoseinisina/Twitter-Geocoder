@@ -8,7 +8,7 @@ class TweetList extends Component {
   render() {
     const tweets = this.props.tweets;
     return (
-      <Table dark>
+      <Table>
         <thead>
           <tr>
             <th>TweetID</th>
