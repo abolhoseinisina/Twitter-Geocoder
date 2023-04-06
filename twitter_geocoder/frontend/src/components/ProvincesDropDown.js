@@ -13,9 +13,9 @@ export default function ProvincesDropDown() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (url) => {
+  const handleClose = (url, province) => {
     setAnchorEl(null);
-    navigate(url)
+    navigate(url, {state:{province:province}})
   };
 
   return (
@@ -45,11 +45,11 @@ export default function ProvincesDropDown() {
           horizontal: 'left',
         }}
       >
-        <MenuItem onClick={() => handleClose('/BC')} disabled>British Columbia</MenuItem>
-        <MenuItem onClick={() => handleClose('/AB')}>Alberta</MenuItem>
-        <MenuItem onClick={() => handleClose('/SK')} disabled>Saskatchewan</MenuItem>
-        <MenuItem onClick={() => handleClose('/MB')} disabled>Manitoba</MenuItem>
-        <MenuItem onClick={() => handleClose('/ON')} disabled>Ontario</MenuItem>
+        {/* <MenuItem onClick={() => handleClose(this, '/province')} disabled>British Columbia</MenuItem> */}
+        <MenuItem onClick={() => handleClose('/province', 'AB')}>Alberta</MenuItem>
+        {/* <MenuItem onClick={() => handleClose(this, '/SK')} disabled>Saskatchewan</MenuItem>
+        <MenuItem onClick={() => handleClose(this, '/MB')} disabled>Manitoba</MenuItem>
+        <MenuItem onClick={() => handleClose(this, '/ON')} disabled>Ontario</MenuItem> */}
       </Menu>
     </div>
   );
