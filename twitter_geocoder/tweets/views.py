@@ -6,37 +6,29 @@ from .models import Tweet
 from .serializers import *
 
 # Create your views here.
-@api_view(['GET', 'POST'])
-def tweets_list(request):
+@api_view(['GET'])
+def tweets_list(request, province):
+    try:
+        tweets = Tweet.objects.filter(province=province)
+    except Tweet.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
     if request.method == 'GET':
-        data = Tweet.objects.all()
-
-        serializer = TweetSerializer(data, context={'request': request}, many=True)
+        serializer = TweetSerializer(tweets, context={'request': request}, many=True)
 
         return Response(serializer.data)
 
-    elif request.method == 'POST':
-        serializer = TweetSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['PUT', 'DELETE'])
-def tweets_detail(request, pk):
+@api_view(['GET'])
+def tweets_detail(request, province, pk):
     try:
         tweet = Tweet.objects.get(pk=pk)
+        if tweet.province != province:
+            raise Tweet.DoesNotExist
+        
     except Tweet.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = TweetSerializer(tweet, context={'request': request})
 
-    if request.method == 'PUT':
-        serializer = TweetSerializer(tweet, data=request.data, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        tweet.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data)

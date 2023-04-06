@@ -20,6 +20,6 @@ from tweets import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/tweets/$', views.tweets_list),
-    re_path(r'^api/tweets/([0-9])$', views.tweets_detail),
+    re_path(r'^api/tweets/(?P<province>[\w.@+-]+)/$', views.tweets_list),
+    re_path(r'^api/tweets/(?P<province>[\w.@+-]+)/(?P<pk>[0-9])$', views.tweets_detail),
 ]
