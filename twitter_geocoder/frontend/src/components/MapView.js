@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Map, { Marker } from "react-map-gl";
+import { MAPBOX_TOKEN } from "../constants";
 
 function MapView() {
     const [viewport, setViewport] = useState({});
@@ -19,9 +20,9 @@ function MapView() {
       <div>
         {viewport.latitude && viewport.longitude && (
           <div class="map">
-            <h3>Your Location:</h3>
+            <h3>Your Location: {MAPBOX_TOKEN}</h3>
             <Map
-              mapboxAccessToken="pk.eyJ1IjoiYWJvbGhvc2VpbmlzaW5hIiwiYSI6ImNsZzQyenE0azAwNG8za216Y2ZxcTBvN2gifQ.LnL29uzGHHMfPE2FzK_mRA"
+              mapboxAccessToken={MAPBOX_TOKEN}
               initialViewState={viewport}
               mapStyle="mapbox://styles/mapbox/streets-v11"
             >
