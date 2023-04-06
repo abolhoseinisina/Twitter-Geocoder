@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
-import NewTweetModal from "./NewTweetModal";
-
-import ConfirmRemovalModal from "./ConfirmRemovalModal";
+import { Table, Button } from "reactstrap";
 
 class TweetList extends Component {
   render() {
@@ -12,7 +9,7 @@ class TweetList extends Component {
       <Table className={'table-hover table-sm'}>
         <thead>
           <tr>
-            <th>TweetID</th>
+            <th>ID</th>
             <th>Tweet</th>
             <th>Publish DateTime</th>
             <th>Last Update DateTime</th>
@@ -31,23 +28,14 @@ class TweetList extends Component {
           ) : (
             tweets.map(tweet => (
               <tr key={tweet.pk}>
-                <td>{tweet.tweetID}</td>
+                <td>{tweet.pk}</td>
                 <td>{tweet.tweet}</td>
                 <td>{tweet.publishDateTime}</td>
                 <td>{tweet.lastUpdateDateTime}</td>
                 <td>{tweet.mainHighway}</td>
                 <td>{tweet.geoname}</td>
                 <td align="center">
-                  <NewTweetModal
-                    create={false}
-                    tweet={tweet}
-                    resetState={this.props.resetState}
-                  />
-                  &nbsp;&nbsp;
-                  <ConfirmRemovalModal
-                    pk={tweet.pk}
-                    resetState={this.props.resetState}
-                  />
+                  <Button>Locate</Button>
                 </td>
               </tr>
             ))

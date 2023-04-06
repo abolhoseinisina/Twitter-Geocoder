@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Col, Container, Row } from "reactstrap";
+import { Col, Container, Row, Button } from "reactstrap";
 import TweetList from "./TweetList";
-import NewTweetModal from "./NewTweetModal";
 import MapView from "./MapView";
 import { useLocation } from 'react-router-dom';
 
@@ -10,7 +9,6 @@ import axios from "axios";
 import { API_URL } from "../constants";
 
 class Province extends Component {
-
     state = {
         tweets: []
     };
@@ -30,6 +28,9 @@ class Province extends Component {
     render() {
         return (
             <Container style={{ marginTop: "20px" }}>
+                <Row>
+                    <Col><h3>Provinces: {this.props.location.state.province}</h3></Col>
+                </Row>
                 <Row className="justify-content-md-center">
                     <Col md lg={9}>
                         <Row>
@@ -42,7 +43,7 @@ class Province extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <NewTweetModal create={true} resetState={this.resetState} />
+                                <Button onClick={() => this.getTweets()}>Referesh</Button>
                             </Col>
                         </Row>
                     </Col>
