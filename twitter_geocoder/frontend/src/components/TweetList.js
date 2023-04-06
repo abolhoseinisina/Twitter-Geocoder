@@ -8,7 +8,8 @@ class TweetList extends Component {
   render() {
     const tweets = this.props.tweets;
     return (
-      <Table>
+      <div class="table-responsive">
+      <Table className={'table-hover table-sm'}>
         <thead>
           <tr>
             <th>TweetID</th>
@@ -53,6 +54,7 @@ class TweetList extends Component {
           )}
         </tbody>
       </Table>
+      </div>
     );
   }
 }

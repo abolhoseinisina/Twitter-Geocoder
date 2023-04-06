@@ -1,18 +1,34 @@
 import React, { Component } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 class Header extends Component {
   render() {
     return (
-      <div className="text-left">
-        <img
-          src="https://pbs.twimg.com/profile_images/1419653728571953153/53Ohu0OO_400x400.png"
-          width="50"
-          style={{ marginTop: "20px" }}
-          alt="logo"
-        /><span>
-          Twitter Geocoder
-        </span>
-      </div>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6"
+            component="div" sx={{ flexGrow: 1 }}>
+            Canadian Twitter Traffic Reports
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+
     );
   }
 }

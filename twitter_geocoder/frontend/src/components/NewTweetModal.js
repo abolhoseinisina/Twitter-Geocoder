@@ -17,14 +17,14 @@ class NewTweetModal extends Component {
     const create = this.props.create;
 
     var title = "Editing Tweet";
-    var button = <Button onClick={this.toggle}>Edit</Button>;
+    var button = <Button onClick={this.toggle} className="btn-sm">Edit</Button>;
     if (create) {
       title = "Creating New Tweet";
 
       button = (
         <Button
           color="primary"
-          className="float-right"
+          className="btn-sm float-right"
           onClick={this.toggle}
           style={{ minWidth: "200px" }}
         >

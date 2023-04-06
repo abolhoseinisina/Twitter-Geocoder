@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import TweetList from "./TweetList";
 import NewTweetModal from "./NewTweetModal";
+import MapView from "./MapView"
 
 import axios from "axios";
 
@@ -27,17 +28,24 @@ class Home extends Component {
   render() {
     return (
       <Container style={{ marginTop: "20px" }}>
-        <Row>
-          <Col>
-            <TweetList
-              tweets={this.state.tweets}
-              resetState={this.resetState}
-            />
+        <Row className="justify-content-md-center">
+          <Col md lg={9}>
+            <Row>
+              <Col>
+                <TweetList
+                  tweets={this.state.tweets}
+                  resetState={this.resetState}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <NewTweetModal create={true} resetState={this.resetState} />
+              </Col>
+            </Row>
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <NewTweetModal create={true} resetState={this.resetState} />
+          <Col md lg={3}>
+            <MapView/>
           </Col>
         </Row>
       </Container>
