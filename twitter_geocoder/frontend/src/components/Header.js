@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from 'react-router-dom';
 
 class Header extends Component {
+
+  handleClick(url) {
+    this.props.navigate(url);
+  }
+  
   render() {
     return (
       <AppBar position="static">
@@ -25,12 +30,20 @@ class Header extends Component {
             component="div" sx={{ flexGrow: 1 }}>
             Canadian Twitter Traffic Reports
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={() => this.handleClick('/')}>Home</Button>
+          <Button color="inherit" onClick={() => this.handleClick('/about')}>About</Button>
+          <Button color="inherit" onClick={() => this.handleClick('/provinces')}>Provinces</Button>
+          <Button color="inherit" onClick={() => this.handleClick('/login')}>Login</Button>
         </Toolbar>
       </AppBar>
 
     );
-  }
+  };
 }
 
-export default Header;
+function HeaderWithNavigate(props) {
+  let navigate = useNavigate();
+  return <Header {...props} navigate={navigate} />
+}
+
+export default HeaderWithNavigate;
