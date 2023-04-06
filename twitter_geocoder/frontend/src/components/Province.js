@@ -20,7 +20,6 @@ class Province extends Component {
     }
 
     resetState = () => {
-        alert(this.props.location.state.province)
         this.getTweets();
     };
 
