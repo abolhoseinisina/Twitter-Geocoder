@@ -40,13 +40,7 @@ class Footer extends Component {
                 description={description}
                 title={title}
                 columns={columns}
-                linkedin="fluffy_cat_on_linkedin"
-                facebook="fluffy_cat_on_fb"
-                twitter="fluffy_cat_on_twitter"
-                instagram="fluffy_cat_live"
-                youtube="UCFt6TSF464J8K82xeA?"
-                pinterest=""
-                copyright="Ebola!"
+                copyright="2023 Ebola!"
                 iconColor="white"
                 backgroundColor="#175fc7"
                 fontColor="white"
