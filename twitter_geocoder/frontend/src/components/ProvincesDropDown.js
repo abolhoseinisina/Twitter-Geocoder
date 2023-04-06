@@ -45,11 +45,11 @@ export default function ProvincesDropDown() {
           horizontal: 'left',
         }}
       >
-        <MenuItem onClick={() => handleClose('/BC')}>British Columbia</MenuItem>
+        <MenuItem onClick={() => handleClose('/BC')} disabled>British Columbia</MenuItem>
         <MenuItem onClick={() => handleClose('/AB')}>Alberta</MenuItem>
-        <MenuItem onClick={() => handleClose('/SK')}>Saskatchewan</MenuItem>
-        <MenuItem onClick={() => handleClose('/MB')}>Manitoba</MenuItem>
-        <MenuItem onClick={() => handleClose('/ON')}>Ontario</MenuItem>
+        <MenuItem onClick={() => handleClose('/SK')} disabled>Saskatchewan</MenuItem>
+        <MenuItem onClick={() => handleClose('/MB')} disabled>Manitoba</MenuItem>
+        <MenuItem onClick={() => handleClose('/ON')} disabled>Ontario</MenuItem>
       </Menu>
     </div>
   );

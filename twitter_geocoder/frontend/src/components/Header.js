@@ -24,7 +24,6 @@ class Header extends Component {
           <Button color="inherit" onClick={() => this.handleClick('/about')}>About</Button>
           <ProvincesDropDown />
           <Button style={{ marginLeft: "auto" }} color="inherit" onClick={() => this.handleClick('/login')}>Login</Button>
-          
         </Toolbar>
       </AppBar>
 
