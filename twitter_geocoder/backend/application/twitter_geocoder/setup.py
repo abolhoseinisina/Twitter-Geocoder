@@ -11,4 +11,7 @@ setup(
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
     test_suite='tests',
+    package_data={
+        'twitter_geocoder': ['twitter_geocoder/Alberta/data/geo-names.csv', 'twitter_geocoder/Alberta/data/road-names.csv']
+    }
 )
